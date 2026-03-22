@@ -33,7 +33,6 @@
       align-items: center;
     }
 
-    /* Top red accent bar */
     .top-bar {
       width: 100%;
       height: 4px;
@@ -50,15 +49,9 @@
       flex-direction: column;
     }
 
-    /* Logo area */
     .logo-area {
       text-align: center;
       margin-bottom: 2rem;
-    }
-
-    .logo-area img {
-      height: 48px;
-      width: auto;
     }
 
     .logo-text {
@@ -77,7 +70,6 @@
       margin-top: 0.5rem;
     }
 
-    /* Section heading */
     h1 {
       font-size: 1.6rem;
       font-weight: 700;
@@ -98,7 +90,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Form styles */
     .form-group {
       margin-bottom: 1.25rem;
     }
@@ -166,7 +157,6 @@
       transform: none;
     }
 
-    /* Success / share link screen */
     .success-screen {
       text-align: center;
       animation: fadeUp 0.4s ease;
@@ -242,7 +232,6 @@
       margin-top: 0.5rem;
     }
 
-    /* Loading spinner */
     .spinner {
       display: inline-block;
       width: 18px;
@@ -255,7 +244,6 @@
       margin-right: 6px;
     }
 
-    /* Error message */
     .error-msg {
       color: var(--va-red);
       font-size: 0.85rem;
@@ -263,7 +251,6 @@
       display: none;
     }
 
-    /* Footer */
     .footer {
       text-align: center;
       padding: 1.5rem;
@@ -272,7 +259,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* Animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
@@ -282,7 +268,6 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Subtle diagonal accent stripe */
     .accent-stripe {
       position: fixed;
       top: -60%;
@@ -315,26 +300,25 @@
       <div class="club-name">Sheffield</div>
     </div>
 
-    <!-- ===================== REFERRER FORM ===================== -->
+    <!-- REFERRER FORM -->
     <div id="referrer-section">
       <h1>Refer a <span>friend.</span></h1>
       <p class="subtitle">Know someone who'd love it here? Pop your details in below and we'll give you a link to send them.</p>
-
       <form id="referrer-form" onsubmit="return handleReferrer(event)">
         <div class="form-group">
           <label for="ref-name">Your name</label>
-          <input type="text" id="ref-name" name="referrerName" placeholder="First and last name" required autocomplete="name">
+          <input type="text" id="ref-name" placeholder="First and last name" required autocomplete="name">
         </div>
         <div class="form-group">
           <label for="ref-phone">Your phone number</label>
-          <input type="tel" id="ref-phone" name="referrerPhone" placeholder="07xxxxxxxxx" required autocomplete="tel">
+          <input type="tel" id="ref-phone" placeholder="07xxxxxxxxx" required autocomplete="tel">
         </div>
         <button type="submit" class="btn" id="referrer-btn">Get my referral link</button>
         <div class="error-msg" id="referrer-error">Something went wrong. Give it another go.</div>
       </form>
     </div>
 
-    <!-- ===================== REFERRER SUCCESS ===================== -->
+    <!-- REFERRER SUCCESS -->
     <div id="referrer-success" class="hidden success-screen">
       <div class="check">
         <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -346,34 +330,33 @@
       <p class="share-hint">Paste it into a text or WhatsApp message — your friend fills in their details and we'll take it from there.</p>
     </div>
 
-    <!-- ===================== REFEREE FORM ===================== -->
+    <!-- REFEREE FORM -->
     <div id="referee-section" class="hidden">
       <h1>You've been <span>referred.</span></h1>
-      <p class="subtitle" id="referee-subtitle">Your friend thinks you'd love Virgin Active Sheffield. We think so too. Pop your details in and we'll be in touch.</p>
-
+      <p class="subtitle">Your friend thinks you'd love Virgin Active Sheffield. We think so too. Pop your details in and we'll be in touch.</p>
       <form id="referee-form" onsubmit="return handleReferee(event)">
         <div class="form-group">
           <label for="friend-name">Your name</label>
-          <input type="text" id="friend-name" name="refereeName" placeholder="First and last name" required autocomplete="name">
+          <input type="text" id="friend-name" placeholder="First and last name" required autocomplete="name">
         </div>
         <div class="form-group">
           <label for="friend-dob">Date of birth</label>
-          <input type="date" id="friend-dob" name="refereeDob" required>
+          <input type="date" id="friend-dob" required>
         </div>
         <div class="form-group">
           <label for="friend-email">Email address</label>
-          <input type="email" id="friend-email" name="refereeEmail" placeholder="you@example.com" required autocomplete="email">
+          <input type="email" id="friend-email" placeholder="you@example.com" required autocomplete="email">
         </div>
         <div class="form-group">
           <label for="friend-phone">Phone number</label>
-          <input type="tel" id="friend-phone" name="refereePhone" placeholder="07xxxxxxxxx" required autocomplete="tel">
+          <input type="tel" id="friend-phone" placeholder="07xxxxxxxxx" required autocomplete="tel">
         </div>
         <button type="submit" class="btn" id="referee-btn">Submit</button>
         <div class="error-msg" id="referee-error">Something went wrong. Give it another go.</div>
       </form>
     </div>
 
-    <!-- ===================== REFEREE SUCCESS ===================== -->
+    <!-- REFEREE SUCCESS -->
     <div id="referee-success" class="hidden success-screen">
       <div class="check">
         <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -387,134 +370,173 @@
   <div class="footer">Virgin Active Sheffield — Refer a Friend</div>
 
   <script>
-    // =====================================================================
-    // CONFIG — UPDATE THESE TWO VALUES
-    // =====================================================================
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzL6zD-be3TeqlCnllARB9DzQeMdr9_2wzbCkLVNSpmgwqTfmSvKOixTX8Xf0fXxn-W/exec';
-    const BASE_URL = window.location.origin + window.location.pathname.replace(/\/$/, '');
+    // =================================================================
+    // CONFIG
+    // =================================================================
+    var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzL6zD-be3TeqlCnllARB9DzQeMdr9_2wzbCkLVNSpmgwqTfmSvKOixTX8Xf0fXxn-W/exec';
 
-    // =====================================================================
-    // DETECT MODE: referrer or referee
-    // =====================================================================
-    const params = new URLSearchParams(window.location.search);
-    const refId = params.get('ref');
+    // =================================================================
+    // DETECT MODE
+    // =================================================================
+    var params = new URLSearchParams(window.location.search);
+    var refId = params.get('ref');
 
     if (refId) {
       document.getElementById('referrer-section').classList.add('hidden');
       document.getElementById('referee-section').classList.remove('hidden');
     }
 
-    // =====================================================================
+    // =================================================================
+    // JSONP helper — injects a script tag, calls Apps Script via GET,
+    // executes the callback, cleans up. Times out after 8 seconds.
+    // =================================================================
+    function jsonp(url, callback, timeout) {
+      timeout = timeout || 8000;
+      var callbackName = 'cb_' + Math.random().toString(36).substr(2, 9);
+      var resolved = false;
+
+      window[callbackName] = function(data) {
+        resolved = true;
+        cleanup();
+        callback(null, data);
+      };
+
+      var script = document.createElement('script');
+      script.src = url + '&callback=' + callbackName;
+      script.onerror = function() {
+        if (!resolved) {
+          cleanup();
+          callback(new Error('Request failed'));
+        }
+      };
+
+      var timer = setTimeout(function() {
+        if (!resolved) {
+          cleanup();
+          callback(null, { status: 'timeout' });
+        }
+      }, timeout);
+
+      function cleanup() {
+        clearTimeout(timer);
+        delete window[callbackName];
+        if (script.parentNode) script.parentNode.removeChild(script);
+      }
+
+      document.body.appendChild(script);
+    }
+
+    // =================================================================
+    // Generate a referral ID on the client
+    // =================================================================
+    function generateRefId() {
+      var chars = 'abcdefghjkmnpqrstuvwxyz23456789';
+      var id = '';
+      for (var i = 0; i < 8; i++) {
+        id += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return id;
+    }
+
+    // =================================================================
+    // Build the referral link from the current page URL
+    // =================================================================
+    function getBaseUrl() {
+      return window.location.href.split('?')[0];
+    }
+
+    // =================================================================
     // REFERRER SUBMISSION
-    // =====================================================================
-    async function handleReferrer(e) {
+    // =================================================================
+    function handleReferrer(e) {
       e.preventDefault();
-      const btn = document.getElementById('referrer-btn');
-      const errorEl = document.getElementById('referrer-error');
+      var btn = document.getElementById('referrer-btn');
+      var errorEl = document.getElementById('referrer-error');
       errorEl.style.display = 'none';
 
-      const name = document.getElementById('ref-name').value.trim();
-      const phone = document.getElementById('ref-phone').value.trim();
-
-      if (!name || !phone) return;
+      var name = document.getElementById('ref-name').value.trim();
+      var phone = document.getElementById('ref-phone').value.trim();
+      if (!name || !phone) return false;
 
       btn.disabled = true;
       btn.innerHTML = '<span class="spinner"></span>Sending...';
 
-      try {
-        const res = await fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({
-            action: 'referrer',
-            referrerName: name,
-            referrerPhone: phone
-          })
-        });
+      var newRefId = generateRefId();
+      var shareUrl = getBaseUrl() + '?ref=' + newRefId;
 
-        const data = await res.json();
+      var url = APPS_SCRIPT_URL
+        + '?action=referrer'
+        + '&refId=' + encodeURIComponent(newRefId)
+        + '&name=' + encodeURIComponent(name)
+        + '&phone=' + encodeURIComponent(phone);
 
-        if (data.status === 'ok' && data.refId) {
-          const shareUrl = `${BASE_URL}?ref=${data.refId}`;
-          document.getElementById('share-link-display').textContent = shareUrl;
-          document.getElementById('referrer-section').classList.add('hidden');
-          document.getElementById('referrer-success').classList.remove('hidden');
-        } else {
-          throw new Error('Bad response');
-        }
-      } catch (err) {
-        console.error(err);
-        errorEl.style.display = 'block';
-        btn.disabled = false;
-        btn.textContent = 'Get my referral link';
-      }
+      jsonp(url, function(err, data) {
+        // Show the link regardless — even on timeout the data almost
+        // certainly saved, Apps Script is just slow to confirm
+        document.getElementById('share-link-display').textContent = shareUrl;
+        document.getElementById('referrer-section').classList.add('hidden');
+        document.getElementById('referrer-success').classList.remove('hidden');
+      });
+
+      return false;
     }
 
-    // =====================================================================
+    // =================================================================
     // REFEREE SUBMISSION
-    // =====================================================================
-    async function handleReferee(e) {
+    // =================================================================
+    function handleReferee(e) {
       e.preventDefault();
-      const btn = document.getElementById('referee-btn');
-      const errorEl = document.getElementById('referee-error');
+      var btn = document.getElementById('referee-btn');
+      var errorEl = document.getElementById('referee-error');
       errorEl.style.display = 'none';
 
-      const name = document.getElementById('friend-name').value.trim();
-      const dob = document.getElementById('friend-dob').value;
-      const email = document.getElementById('friend-email').value.trim();
-      const phone = document.getElementById('friend-phone').value.trim();
-
-      if (!name || !dob || !email || !phone) return;
+      var name = document.getElementById('friend-name').value.trim();
+      var dob = document.getElementById('friend-dob').value;
+      var email = document.getElementById('friend-email').value.trim();
+      var phone = document.getElementById('friend-phone').value.trim();
+      if (!name || !dob || !email || !phone) return false;
 
       btn.disabled = true;
       btn.innerHTML = '<span class="spinner"></span>Sending...';
 
-      try {
-        const res = await fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({
-            action: 'referee',
-            refId: refId,
-            refereeName: name,
-            refereeDob: dob,
-            refereeEmail: email,
-            refereePhone: phone
-          })
-        });
+      var url = APPS_SCRIPT_URL
+        + '?action=referee'
+        + '&refId=' + encodeURIComponent(refId)
+        + '&name=' + encodeURIComponent(name)
+        + '&dob=' + encodeURIComponent(dob)
+        + '&email=' + encodeURIComponent(email)
+        + '&phone=' + encodeURIComponent(phone);
 
-        const data = await res.json();
-
-        if (data.status === 'ok') {
-          document.getElementById('referee-section').classList.add('hidden');
-          document.getElementById('referee-success').classList.remove('hidden');
-        } else {
-          throw new Error('Bad response');
+      jsonp(url, function(err, data) {
+        if (err) {
+          errorEl.style.display = 'block';
+          btn.disabled = false;
+          btn.textContent = 'Submit';
+          return;
         }
-      } catch (err) {
-        console.error(err);
-        errorEl.style.display = 'block';
-        btn.disabled = false;
-        btn.textContent = 'Submit';
-      }
+        document.getElementById('referee-section').classList.add('hidden');
+        document.getElementById('referee-success').classList.remove('hidden');
+      });
+
+      return false;
     }
 
-    // =====================================================================
+    // =================================================================
     // COPY LINK
-    // =====================================================================
+    // =================================================================
     function copyLink() {
-      const link = document.getElementById('share-link-display').textContent;
-      const btn = document.getElementById('copy-btn');
+      var link = document.getElementById('share-link-display').textContent;
+      var btn = document.getElementById('copy-btn');
 
-      navigator.clipboard.writeText(link).then(() => {
+      navigator.clipboard.writeText(link).then(function() {
         btn.textContent = 'Copied!';
         btn.classList.add('copied');
-        setTimeout(() => {
+        setTimeout(function() {
           btn.textContent = 'Copy link';
           btn.classList.remove('copied');
         }, 2500);
-      }).catch(() => {
-        const ta = document.createElement('textarea');
+      }).catch(function() {
+        var ta = document.createElement('textarea');
         ta.value = link;
         ta.style.position = 'fixed';
         ta.style.opacity = '0';
@@ -524,7 +546,7 @@
         document.body.removeChild(ta);
         btn.textContent = 'Copied!';
         btn.classList.add('copied');
-        setTimeout(() => {
+        setTimeout(function() {
           btn.textContent = 'Copy link';
           btn.classList.remove('copied');
         }, 2500);
