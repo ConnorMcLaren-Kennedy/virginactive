@@ -79,6 +79,11 @@
       color: var(--va-dark);
     }
 
+    h1.small {
+      font-size: 1.15rem;
+      margin-bottom: 1.25rem;
+    }
+
     h1 span {
       color: var(--va-red);
     }
@@ -287,6 +292,22 @@
     }
 
     .hidden { display: none; }
+
+    .hero {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-line {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--va-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-line span {
+      color: var(--va-red);
+    }
   </style>
 </head>
 <body>
@@ -300,10 +321,14 @@
       <div class="club-name">Sheffield</div>
     </div>
 
+    <!-- HERO HEADLINE (only shows on referrer screen) -->
+    <div id="hero-headline" class="hero">
+      <p class="hero-line">Refer someone and get a <span>FREE</span> gym membership for a month. Refer two people, get <span>two free months!</span></p>
+    </div>
+
     <!-- REFERRER FORM -->
     <div id="referrer-section">
-      <h1>Refer a <span>friend.</span></h1>
-      <p class="subtitle">Know someone who'd love it here? Pop your details in below and we'll give you a link to send them.</p>
+      <h1 class="small">Refer a friend.</h1>
       <form id="referrer-form" onsubmit="return handleReferrer(event)">
         <div class="form-group">
           <label for="ref-name">Your name</label>
@@ -384,6 +409,7 @@
     if (refId) {
       document.getElementById('referrer-section').classList.add('hidden');
       document.getElementById('referee-section').classList.remove('hidden');
+      document.getElementById('hero-headline').classList.add('hidden');
     }
 
     // =================================================================
@@ -475,6 +501,7 @@
         // certainly saved, Apps Script is just slow to confirm
         document.getElementById('share-link-display').textContent = shareUrl;
         document.getElementById('referrer-section').classList.add('hidden');
+        document.getElementById('hero-headline').classList.add('hidden');
         document.getElementById('referrer-success').classList.remove('hidden');
       });
 
